@@ -93,7 +93,7 @@ export default {
   },
   created: async function () {
     this.rates = await fetch(
-      "https://data.fixer.io/api/latest?access_key=f2d07c7fe34070f0f56a0747848e966b&symbols=USD,GBP,CNY,INR"
+      "http://data.fixer.io/api/latest?access_key=f2d07c7fe34070f0f56a0747848e966b&symbols=USD,GBP,CNY,INR"
     )
       .then((response) => response.json())
       .then((data) => data.rates);
