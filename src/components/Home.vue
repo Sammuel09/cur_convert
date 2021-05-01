@@ -37,19 +37,15 @@
             >
               {{ digit }}
             </span>
-            <!-- <cancel /> -->
           </div>
         </div>
       </div>
-      <!-- <div class="button-wrappper"> -->
       <div class="button"></div>
-      <!-- </div> -->
     </div>
   </div>
 </template>
 
 <script>
-// import Cancel from "./Cancel";
 export default {
   name: "Home",
   data() {
@@ -96,19 +92,14 @@ export default {
     },
   },
   created: async function () {
-    //make an api call
     this.rates = await fetch(
-      "http://data.fixer.io/api/latest?access_key=f2d07c7fe34070f0f56a0747848e966b&symbols=USD,GBP,CNY,INR"
+      "https://data.fixer.io/api/latest?access_key=f2d07c7fe34070f0f56a0747848e966b&symbols=USD,GBP,CNY,INR"
     )
       .then((response) => response.json())
       .then((data) => data.rates);
   },
   watch: {
     amount: {
-      // const displayedAmount = this.amount.join("");
-      // const formattedAmount = this.insertDecimal(displayedAmount);
-      // console.log(formattedAmount);
-      // this.convertCurrency(amt);
       handler: function (newAmount, oldAmount) {
         const amount = newAmount.join("");
         const formattedAmount = (amount / 100).toFixed(2);
@@ -151,7 +142,7 @@ export default {
   align-items: center;
 }
 .screen {
-  width: 13vw;
+  width: 18vw;
   height: 440px;
   background: rgb(18, 194, 218);
   margin-top: 4rem;
@@ -193,7 +184,7 @@ export default {
   grid-template-rows: 20px 20px 20px 20px;
   column-gap: 5px;
   row-gap: 25px;
-  margin-left: 3px;
+  margin-left: 8px;
   margin-right: 1px;
   margin-top: 58px;
   justify-items: center;
